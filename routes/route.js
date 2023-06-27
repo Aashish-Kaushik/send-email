@@ -1,6 +1,6 @@
 const express = require('express')
-const route = express.Route()
-
-
-route.post('/sendMail')
-module.export = route; 
+const route = express.Router()
+const {mailsenders} = require("../controllers/mail.controller")
+ 
+route.post('/sendMail' , mailsenders)
+module.exports = route; 
