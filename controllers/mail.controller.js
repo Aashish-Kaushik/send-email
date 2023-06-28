@@ -20,8 +20,15 @@ exports.mailsenders = async (req, res) => {
             to: email,
             subject: subject,
             text: body
-        }, () => {
+        }).then((response) => {
+            console.log(response)
+        }).catch((error) => {
+            console.log(error)
+        })
 
+        res.send({
+            status: "success",
+            response: info
         })
 
     } catch (error) {
