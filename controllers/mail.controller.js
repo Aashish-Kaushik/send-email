@@ -14,14 +14,15 @@ const transporter = nodeMailer.createTransport({
 
 exports.mailsenders = async (req, res) => {
     try {
-const info = await transporter.sendMail({
-    from:"sender emai Id",
-    to:"reciver id ",
-    subject:"hello",
-    text:"dummay"
-},()=>{
-    
-})
+        const { email, body, subject } = req.body
+        const info = await transporter.sendMail({
+            from: " PLease add sender_id",
+            to: email,
+            subject: subject,
+            text: body
+        }, () => {
+
+        })
 
     } catch (error) {
         res.send({
